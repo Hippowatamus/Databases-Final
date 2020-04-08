@@ -2,23 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { ApiServiceService } from "../api-service.service";
 import { ActivatedRoute } from "@angular/router";
 
-
 @Component({
-  selector: 'app-listings',
-  templateUrl: './listings.component.html',
-  styleUrls: ['./listings.component.css']
+  selector: 'app-branch-employee-interface',
+  templateUrl: './branch-employee-interface.component.html',
+  styleUrls: ['./branch-employee-interface.component.css']
 })
-
-export class ListingsComponent implements OnInit {
+export class BranchEmployeeInterfaceComponent implements OnInit {
 
   constructor(private apiService: ApiServiceService, private route: ActivatedRoute) { }
   data = "Nothing to display";
   ngOnInit() {
-    this.getAllData();
+    let id: string =this.route.snapshot.paramMap.get('id');
+    this.getSpecificData(id);
   }
 
-  getAllData(){
-    const promise = this.apiService.getAllBranchEmployeeInfo().toPromise();
+  getSpecificData(id: string){
+    const promise = this.apiService.getBranchEmployeeInfo(id).toPromise();
     promise.then((data)=>{
       console.log(data);
       this.data = JSON.stringify(data);
@@ -26,7 +25,4 @@ export class ListingsComponent implements OnInit {
       console.log("Promise rejected with " + JSON.stringify(error));
     })
   }
-
-
-
 }

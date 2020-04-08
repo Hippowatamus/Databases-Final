@@ -21,4 +21,20 @@ app.listen(port, () => {
   console.log(`App running on port ${port}.`)
 })
 
-app.get('/allproperty', db.getAllProperty)
+app.get('/branchemployee', db.getAllBranchEmployeeInfo)
+
+app.get('/branchemployee/:branch_id', db.getBranchEmployeeInfo)
+
+app.get('/guest', db.getAllGuestInfo)
+
+app.get('/guest/:guest_id', db.getGuestBookingInfo)
+
+app.get('/host/:host_id', db.getHostInfo)
+
+app.post('/host/:host_id', db.createProperty)
+
+app.route('/host/:host_id').post((req, res) => {
+  db.createProperty
+})
+
+app.delete('/host/:host_id/:id', db.deleteProperty)

@@ -8,13 +8,17 @@ import { HttpClientModule } from "@angular/common/http";
 import { ListingsComponent } from './listings/listings.component';
 import { HostInterfaceComponent } from './host-interface/host-interface.component';
 import { GuestInterfaceComponent } from './guest-interface/guest-interface.component';
+import { BranchEmployeeInterfaceComponent } from './branch-employee-interface/branch-employee-interface.component';
+import { GuestBookingsInterfaceComponent } from './guest-bookings-interface/guest-bookings-interface.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListingsComponent,
     HostInterfaceComponent,
-    GuestInterfaceComponent
+    GuestInterfaceComponent,
+    BranchEmployeeInterfaceComponent,
+    GuestBookingsInterfaceComponent
   ],
   imports: [
     BrowserModule,

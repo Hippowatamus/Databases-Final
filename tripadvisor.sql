@@ -25,7 +25,7 @@ SET default_table_access_method = heap;
 --
 
 CREATE TABLE public.amenities (
-    "ID" integer NOT NULL,
+    id integer NOT NULL,
     amenity text NOT NULL,
     property_id integer NOT NULL
 );
@@ -38,7 +38,7 @@ ALTER TABLE public.amenities OWNER TO postgres;
 --
 
 CREATE TABLE public.available_dates (
-    "ID" integer NOT NULL,
+    id integer NOT NULL,
     available_date date NOT NULL,
     property_id integer NOT NULL
 );
@@ -51,7 +51,7 @@ ALTER TABLE public.available_dates OWNER TO postgres;
 --
 
 CREATE TABLE public.booking_property (
-    "ID" integer NOT NULL,
+    id integer NOT NULL,
     property_id integer NOT NULL,
     guest_id integer NOT NULL
 );
@@ -64,7 +64,7 @@ ALTER TABLE public.booking_property OWNER TO postgres;
 --
 
 CREATE TABLE public.branch (
-    "ID" integer NOT NULL,
+    id integer NOT NULL,
     country text NOT NULL
 );
 
@@ -76,7 +76,7 @@ ALTER TABLE public.branch OWNER TO postgres;
 --
 
 CREATE TABLE public.employee_email_addresses (
-    "ID" integer NOT NULL,
+    id integer NOT NULL,
     email_address text NOT NULL,
     user_id integer NOT NULL
 );
@@ -89,7 +89,7 @@ ALTER TABLE public.employee_email_addresses OWNER TO postgres;
 --
 
 CREATE TABLE public.employee_phone_numbers (
-    "ID" integer NOT NULL,
+    id integer NOT NULL,
     phone_number text NOT NULL,
     user_id integer NOT NULL
 );
@@ -102,7 +102,7 @@ ALTER TABLE public.employee_phone_numbers OWNER TO postgres;
 --
 
 CREATE TABLE public.users (
-    "ID" integer NOT NULL,
+    id integer NOT NULL,
     house_number integer NOT NULL,
     street text NOT NULL,
     city text NOT NULL,
@@ -120,7 +120,7 @@ ALTER TABLE public.users OWNER TO postgres;
 --
 
 CREATE TABLE public.employees (
-    "position" text NOT NULL,
+    job text NOT NULL,
     salary money NOT NULL,
     branch_id integer NOT NULL,
     manager_id integer,
@@ -136,7 +136,7 @@ ALTER TABLE public.employees OWNER TO postgres;
 --
 
 CREATE TABLE public.guest_email_addresses (
-    "ID" integer NOT NULL,
+    id integer NOT NULL,
     email_address text NOT NULL,
     user_id integer NOT NULL
 );
@@ -149,7 +149,7 @@ ALTER TABLE public.guest_email_addresses OWNER TO postgres;
 --
 
 CREATE TABLE public.guest_phone_numbers (
-    "ID" integer NOT NULL,
+    id integer NOT NULL,
     phone_number text NOT NULL,
     user_id integer NOT NULL
 );
@@ -173,7 +173,7 @@ ALTER TABLE public.guests OWNER TO postgres;
 --
 
 CREATE TABLE public.host_email_addresses (
-    "ID" integer NOT NULL,
+    id integer NOT NULL,
     email_address text NOT NULL,
     user_id integer NOT NULL
 );
@@ -186,7 +186,7 @@ ALTER TABLE public.host_email_addresses OWNER TO postgres;
 --
 
 CREATE TABLE public.host_phone_numbers (
-    "ID" integer NOT NULL,
+    id integer NOT NULL,
     phone_number text NOT NULL,
     user_id integer NOT NULL
 );
@@ -210,7 +210,7 @@ ALTER TABLE public.hosts OWNER TO postgres;
 --
 
 CREATE TABLE public.payment (
-    "ID" integer NOT NULL,
+    id integer NOT NULL,
     type_of_payment text NOT NULL,
     amount money NOT NULL,
     status text NOT NULL,
@@ -228,14 +228,14 @@ ALTER TABLE public.payment OWNER TO postgres;
 --
 
 CREATE TABLE public.property (
-    "ID" integer NOT NULL,
+    id integer NOT NULL,
     house_number integer NOT NULL,
     street text NOT NULL,
     city text NOT NULL,
     province text NOT NULL,
     property_type text NOT NULL,
     room_type text NOT NULL,
-    accomodates integer NOT NULL,
+    accommodates integer NOT NULL,
     bathrooms integer NOT NULL,
     bedrooms integer NOT NULL,
     beds integer NOT NULL,
@@ -252,7 +252,7 @@ ALTER TABLE public.property OWNER TO postgres;
 --
 
 CREATE TABLE public.rental_agreement (
-    "ID" integer NOT NULL,
+    id integer NOT NULL,
     signing_date date NOT NULL,
     start_date date NOT NULL,
     end_date date NOT NULL,
@@ -267,7 +267,7 @@ ALTER TABLE public.rental_agreement OWNER TO postgres;
 --
 
 CREATE TABLE public.renter_rate (
-    "ID" integer NOT NULL,
+    id integer NOT NULL,
     price money NOT NULL,
     number_of_guests integer NOT NULL
 );
@@ -280,7 +280,7 @@ ALTER TABLE public.renter_rate OWNER TO postgres;
 --
 
 CREATE TABLE public.reviews (
-    "ID" integer NOT NULL,
+    id integer NOT NULL,
     rating integer NOT NULL,
     communication integer NOT NULL,
     cleanliness integer NOT NULL,
@@ -301,7 +301,7 @@ ALTER TABLE public.reviews OWNER TO postgres;
 --
 
 CREATE TABLE public.rules (
-    "ID" integer NOT NULL,
+    id integer NOT NULL,
     rule text NOT NULL,
     property_id integer NOT NULL
 );
@@ -313,7 +313,7 @@ ALTER TABLE public.rules OWNER TO postgres;
 -- Data for Name: amenities; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.amenities ("ID", amenity, property_id) FROM stdin;
+COPY public.amenities (id, amenity, property_id) FROM stdin;
 1	Outdoor pool.	1
 2	Complimentary gym access.	2
 3	Games room included.	3
@@ -326,7 +326,7 @@ COPY public.amenities ("ID", amenity, property_id) FROM stdin;
 -- Data for Name: available_dates; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.available_dates ("ID", available_date, property_id) FROM stdin;
+COPY public.available_dates (id, available_date, property_id) FROM stdin;
 1	2020-05-10	1
 2	2020-07-03	2
 3	2020-06-01	3
@@ -339,7 +339,7 @@ COPY public.available_dates ("ID", available_date, property_id) FROM stdin;
 -- Data for Name: booking_property; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.booking_property ("ID", property_id, guest_id) FROM stdin;
+COPY public.booking_property (id, property_id, guest_id) FROM stdin;
 1	4	33
 2	2	32
 3	1	35
@@ -351,7 +351,7 @@ COPY public.booking_property ("ID", property_id, guest_id) FROM stdin;
 -- Data for Name: branch; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.branch ("ID", country) FROM stdin;
+COPY public.branch (id, country) FROM stdin;
 1	Canada
 2	Canada
 3	Canada
@@ -363,7 +363,7 @@ COPY public.branch ("ID", country) FROM stdin;
 -- Data for Name: employee_email_addresses; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.employee_email_addresses ("ID", email_address, user_id) FROM stdin;
+COPY public.employee_email_addresses (id, email_address, user_id) FROM stdin;
 1	jeb@gmail.com	11
 2	yon@gmail.com	12
 3	eric@gmail.com	13
@@ -380,7 +380,7 @@ COPY public.employee_email_addresses ("ID", email_address, user_id) FROM stdin;
 -- Data for Name: employee_phone_numbers; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.employee_phone_numbers ("ID", phone_number, user_id) FROM stdin;
+COPY public.employee_phone_numbers (id, phone_number, user_id) FROM stdin;
 1	433-545-8766	11
 2	222-221-2324	12
 3	465-435-1212	13
@@ -397,7 +397,7 @@ COPY public.employee_phone_numbers ("ID", phone_number, user_id) FROM stdin;
 -- Data for Name: employees; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.employees ("ID", house_number, street, city, province, first_name, middle_name, last_name, "position", salary, branch_id, manager_id, property_id) FROM stdin;
+COPY public.employees (id, house_number, street, city, province, first_name, middle_name, last_name, job, salary, branch_id, manager_id, property_id) FROM stdin;
 11	454	Wolkwa Drive	Vancouver	British Columbia	Jeb	\N	Beb	Branch Manager	$30,500.00	1	\N	1
 12	1212	Askeree Way	Vancouver	British Columbia	Yonny	\N	Yonson	Employee	$13,500.00	1	11	1
 13	23	Asadwa Circle	Montreal	Quebec	Eric	\N	Garner	Branch Manager	$50,500.00	2	\N	2
@@ -414,7 +414,7 @@ COPY public.employees ("ID", house_number, street, city, province, first_name, m
 -- Data for Name: guest_email_addresses; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.guest_email_addresses ("ID", email_address, user_id) FROM stdin;
+COPY public.guest_email_addresses (id, email_address, user_id) FROM stdin;
 1	beth@gmail.com	31
 2	eded@gmail.com	32
 3	vteller@gmail.com	33
@@ -427,7 +427,7 @@ COPY public.guest_email_addresses ("ID", email_address, user_id) FROM stdin;
 -- Data for Name: guest_phone_numbers; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.guest_phone_numbers ("ID", phone_number, user_id) FROM stdin;
+COPY public.guest_phone_numbers (id, phone_number, user_id) FROM stdin;
 1	654-355-7677	31
 2	223-435-7777	32
 3	345-767-3413	33
@@ -440,7 +440,7 @@ COPY public.guest_phone_numbers ("ID", phone_number, user_id) FROM stdin;
 -- Data for Name: guests; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.guests ("ID", house_number, street, city, province, first_name, middle_name, last_name) FROM stdin;
+COPY public.guests (id, house_number, street, city, province, first_name, middle_name, last_name) FROM stdin;
 31	74	Waaask Drive	Ottawa	Ontario	Bethany	\N	Sosa
 32	52	Aekeo Way	Toronto	Ontario	Edward	\N	Edwards
 33	887	Slabe Street	Montreal	Quebec	Vick	\N	Teller
@@ -453,7 +453,7 @@ COPY public.guests ("ID", house_number, street, city, province, first_name, midd
 -- Data for Name: host_email_addresses; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.host_email_addresses ("ID", email_address, user_id) FROM stdin;
+COPY public.host_email_addresses (id, email_address, user_id) FROM stdin;
 1	jeff@gmail.com	21
 2	bill@gmail.com	22
 3	kkyl01@gmail.com	23
@@ -466,7 +466,7 @@ COPY public.host_email_addresses ("ID", email_address, user_id) FROM stdin;
 -- Data for Name: host_phone_numbers; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.host_phone_numbers ("ID", phone_number, user_id) FROM stdin;
+COPY public.host_phone_numbers (id, phone_number, user_id) FROM stdin;
 1	420-223-5345	21
 2	544-477-8867	22
 3	667-454-2434	23
@@ -479,7 +479,7 @@ COPY public.host_phone_numbers ("ID", phone_number, user_id) FROM stdin;
 -- Data for Name: hosts; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.hosts ("ID", house_number, street, city, province, first_name, middle_name, last_name) FROM stdin;
+COPY public.hosts (id, house_number, street, city, province, first_name, middle_name, last_name) FROM stdin;
 21	13	Bridle Park Drive	Ottawa	Ontario	Jeff	\N	Jefferson
 22	144	Equestrian Drive	Toronto	Ontario	Bill	\N	Billson
 23	75	Stonehaven Drive	Montreal	Quebec	Kyle	\N	Kyleson
@@ -492,11 +492,11 @@ COPY public.hosts ("ID", house_number, street, city, province, first_name, middl
 -- Data for Name: payment; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.payment ("ID", type_of_payment, amount, status, guest_id, host_id) FROM stdin;
+COPY public.payment (id, type_of_payment, amount, status, guest_id, host_id) FROM stdin;
 2	cheque	$555.00	pending	32	23
-3	credit card	$360.00	approved	35	25
 1	cash	$122.00	completed	33	21
 4	direct debit	$1,244.00	approved	33	22
+3	credit card	$360.00	approved	35	24
 \.
 
 
@@ -504,7 +504,7 @@ COPY public.payment ("ID", type_of_payment, amount, status, guest_id, host_id) F
 -- Data for Name: property; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.property ("ID", house_number, street, city, province, property_type, room_type, accomodates, bathrooms, bedrooms, beds, branch_id, host_id, renter_rate_id) FROM stdin;
+COPY public.property (id, house_number, street, city, province, property_type, room_type, accommodates, bathrooms, bedrooms, beds, branch_id, host_id, renter_rate_id) FROM stdin;
 1	30	Roadstreet Drive	Vancouver	British Columbia	Bed & Breakfast	Private Room	3	2	1	2	1	24	1
 2	456	Aweksm Drive	Montreal	Quebec	Apartment	Shared Room	2	2	2	2	2	23	2
 3	687	Welcks Drive	Saskatoon	Saskatchewan	Unique Home	Unique Space	1	1	1	1	4	25	3
@@ -517,7 +517,7 @@ COPY public.property ("ID", house_number, street, city, province, property_type,
 -- Data for Name: rental_agreement; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.rental_agreement ("ID", signing_date, start_date, end_date, property_id) FROM stdin;
+COPY public.rental_agreement (id, signing_date, start_date, end_date, property_id) FROM stdin;
 1	2019-09-10	2019-10-20	2019-10-22	4
 2	2020-01-03	2020-07-03	2020-07-10	2
 3	2020-01-05	2020-05-10	2020-05-17	1
@@ -529,7 +529,7 @@ COPY public.rental_agreement ("ID", signing_date, start_date, end_date, property
 -- Data for Name: renter_rate; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.renter_rate ("ID", price, number_of_guests) FROM stdin;
+COPY public.renter_rate (id, price, number_of_guests) FROM stdin;
 1	$360.00	1
 2	$555.00	3
 3	$676.00	2
@@ -542,7 +542,7 @@ COPY public.renter_rate ("ID", price, number_of_guests) FROM stdin;
 -- Data for Name: reviews; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.reviews ("ID", rating, communication, cleanliness, value, guest_id, property_id) FROM stdin;
+COPY public.reviews (id, rating, communication, cleanliness, value, guest_id, property_id) FROM stdin;
 1	5	4	5	5	33	4
 2	4	3	4	5	33	5
 3	3	2	4	4	32	2
@@ -553,7 +553,7 @@ COPY public.reviews ("ID", rating, communication, cleanliness, value, guest_id, 
 -- Data for Name: rules; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.rules ("ID", rule, property_id) FROM stdin;
+COPY public.rules (id, rule, property_id) FROM stdin;
 1	No pets.	1
 2	No smoking or vaping.	3
 3	No pets.	5
@@ -564,7 +564,7 @@ COPY public.rules ("ID", rule, property_id) FROM stdin;
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.users ("ID", house_number, street, city, province, first_name, middle_name, last_name) FROM stdin;
+COPY public.users (id, house_number, street, city, province, first_name, middle_name, last_name) FROM stdin;
 \.
 
 
@@ -573,7 +573,7 @@ COPY public.users ("ID", house_number, street, city, province, first_name, middl
 --
 
 ALTER TABLE ONLY public.amenities
-    ADD CONSTRAINT amenities_pkey PRIMARY KEY ("ID");
+    ADD CONSTRAINT amenities_pkey PRIMARY KEY (id);
 
 
 --
@@ -581,7 +581,7 @@ ALTER TABLE ONLY public.amenities
 --
 
 ALTER TABLE ONLY public.available_dates
-    ADD CONSTRAINT available_dates_pkey PRIMARY KEY ("ID");
+    ADD CONSTRAINT available_dates_pkey PRIMARY KEY (id);
 
 
 --
@@ -589,7 +589,7 @@ ALTER TABLE ONLY public.available_dates
 --
 
 ALTER TABLE ONLY public.booking_property
-    ADD CONSTRAINT booking_property_pkey PRIMARY KEY ("ID");
+    ADD CONSTRAINT booking_property_pkey PRIMARY KEY (id);
 
 
 --
@@ -597,7 +597,7 @@ ALTER TABLE ONLY public.booking_property
 --
 
 ALTER TABLE ONLY public.branch
-    ADD CONSTRAINT branch_pkey PRIMARY KEY ("ID");
+    ADD CONSTRAINT branch_pkey PRIMARY KEY (id);
 
 
 --
@@ -605,7 +605,7 @@ ALTER TABLE ONLY public.branch
 --
 
 ALTER TABLE ONLY public.employee_email_addresses
-    ADD CONSTRAINT email_addresses_pkey PRIMARY KEY ("ID");
+    ADD CONSTRAINT email_addresses_pkey PRIMARY KEY (id);
 
 
 --
@@ -613,7 +613,7 @@ ALTER TABLE ONLY public.employee_email_addresses
 --
 
 ALTER TABLE ONLY public.employees
-    ADD CONSTRAINT employee_pkey PRIMARY KEY ("ID");
+    ADD CONSTRAINT employee_pkey PRIMARY KEY (id);
 
 
 --
@@ -621,7 +621,7 @@ ALTER TABLE ONLY public.employees
 --
 
 ALTER TABLE ONLY public.guest_email_addresses
-    ADD CONSTRAINT guest_email_addresses_pkey PRIMARY KEY ("ID");
+    ADD CONSTRAINT guest_email_addresses_pkey PRIMARY KEY (id);
 
 
 --
@@ -629,7 +629,7 @@ ALTER TABLE ONLY public.guest_email_addresses
 --
 
 ALTER TABLE ONLY public.guest_phone_numbers
-    ADD CONSTRAINT guest_phone_numbers_pkey PRIMARY KEY ("ID");
+    ADD CONSTRAINT guest_phone_numbers_pkey PRIMARY KEY (id);
 
 
 --
@@ -637,7 +637,7 @@ ALTER TABLE ONLY public.guest_phone_numbers
 --
 
 ALTER TABLE ONLY public.guests
-    ADD CONSTRAINT guest_pkey PRIMARY KEY ("ID");
+    ADD CONSTRAINT guest_pkey PRIMARY KEY (id);
 
 
 --
@@ -645,7 +645,7 @@ ALTER TABLE ONLY public.guests
 --
 
 ALTER TABLE ONLY public.host_email_addresses
-    ADD CONSTRAINT host_email_addresses_pkey PRIMARY KEY ("ID");
+    ADD CONSTRAINT host_email_addresses_pkey PRIMARY KEY (id);
 
 
 --
@@ -653,7 +653,7 @@ ALTER TABLE ONLY public.host_email_addresses
 --
 
 ALTER TABLE ONLY public.host_phone_numbers
-    ADD CONSTRAINT host_phone_numbers_pkey PRIMARY KEY ("ID");
+    ADD CONSTRAINT host_phone_numbers_pkey PRIMARY KEY (id);
 
 
 --
@@ -661,7 +661,7 @@ ALTER TABLE ONLY public.host_phone_numbers
 --
 
 ALTER TABLE ONLY public.hosts
-    ADD CONSTRAINT host_pkey PRIMARY KEY ("ID");
+    ADD CONSTRAINT host_pkey PRIMARY KEY (id);
 
 
 --
@@ -669,7 +669,7 @@ ALTER TABLE ONLY public.hosts
 --
 
 ALTER TABLE ONLY public.payment
-    ADD CONSTRAINT payment_pkey PRIMARY KEY ("ID");
+    ADD CONSTRAINT payment_pkey PRIMARY KEY (id);
 
 
 --
@@ -677,7 +677,7 @@ ALTER TABLE ONLY public.payment
 --
 
 ALTER TABLE ONLY public.employee_phone_numbers
-    ADD CONSTRAINT phone_numbers_pkey PRIMARY KEY ("ID");
+    ADD CONSTRAINT phone_numbers_pkey PRIMARY KEY (id);
 
 
 --
@@ -685,7 +685,7 @@ ALTER TABLE ONLY public.employee_phone_numbers
 --
 
 ALTER TABLE ONLY public.property
-    ADD CONSTRAINT property_pkey PRIMARY KEY ("ID");
+    ADD CONSTRAINT property_pkey PRIMARY KEY (id);
 
 
 --
@@ -701,7 +701,7 @@ ALTER TABLE public.rental_agreement
 --
 
 ALTER TABLE ONLY public.rental_agreement
-    ADD CONSTRAINT rental_agreement_pkey PRIMARY KEY ("ID");
+    ADD CONSTRAINT rental_agreement_pkey PRIMARY KEY (id);
 
 
 --
@@ -709,7 +709,7 @@ ALTER TABLE ONLY public.rental_agreement
 --
 
 ALTER TABLE ONLY public.renter_rate
-    ADD CONSTRAINT renter_rate_pkey PRIMARY KEY ("ID");
+    ADD CONSTRAINT renter_rate_pkey PRIMARY KEY (id);
 
 
 --
@@ -717,7 +717,7 @@ ALTER TABLE ONLY public.renter_rate
 --
 
 ALTER TABLE ONLY public.reviews
-    ADD CONSTRAINT review_pkey PRIMARY KEY ("ID");
+    ADD CONSTRAINT review_pkey PRIMARY KEY (id);
 
 
 --
@@ -725,7 +725,7 @@ ALTER TABLE ONLY public.reviews
 --
 
 ALTER TABLE ONLY public.rules
-    ADD CONSTRAINT rules_pkey PRIMARY KEY ("ID");
+    ADD CONSTRAINT rules_pkey PRIMARY KEY (id);
 
 
 --
@@ -733,7 +733,7 @@ ALTER TABLE ONLY public.rules
 --
 
 ALTER TABLE ONLY public.users
-    ADD CONSTRAINT user_pkey PRIMARY KEY ("ID");
+    ADD CONSTRAINT user_pkey PRIMARY KEY (id);
 
 
 --
@@ -741,7 +741,7 @@ ALTER TABLE ONLY public.users
 --
 
 ALTER TABLE ONLY public.amenities
-    ADD CONSTRAINT amenities_property_id_fkey FOREIGN KEY (property_id) REFERENCES public.property("ID");
+    ADD CONSTRAINT amenities_property_id_fkey FOREIGN KEY (property_id) REFERENCES public.property(id) NOT VALID;
 
 
 --
@@ -749,7 +749,7 @@ ALTER TABLE ONLY public.amenities
 --
 
 ALTER TABLE ONLY public.available_dates
-    ADD CONSTRAINT available_dates_property_id_fkey FOREIGN KEY (property_id) REFERENCES public.property("ID") NOT VALID;
+    ADD CONSTRAINT available_dates_property_id_fkey FOREIGN KEY (property_id) REFERENCES public.property(id) NOT VALID;
 
 
 --
@@ -757,7 +757,7 @@ ALTER TABLE ONLY public.available_dates
 --
 
 ALTER TABLE ONLY public.booking_property
-    ADD CONSTRAINT booking_property_guest_id_fkey FOREIGN KEY (guest_id) REFERENCES public.guests("ID") NOT VALID;
+    ADD CONSTRAINT booking_property_guest_id_fkey FOREIGN KEY (guest_id) REFERENCES public.guests(id) NOT VALID;
 
 
 --
@@ -765,7 +765,7 @@ ALTER TABLE ONLY public.booking_property
 --
 
 ALTER TABLE ONLY public.booking_property
-    ADD CONSTRAINT booking_property_property_id_fkey FOREIGN KEY (property_id) REFERENCES public.property("ID");
+    ADD CONSTRAINT booking_property_property_id_fkey FOREIGN KEY (property_id) REFERENCES public.property(id) NOT VALID;
 
 
 --
@@ -773,7 +773,7 @@ ALTER TABLE ONLY public.booking_property
 --
 
 ALTER TABLE ONLY public.employees
-    ADD CONSTRAINT employee_branch_id_fkey FOREIGN KEY (branch_id) REFERENCES public.branch("ID") NOT VALID;
+    ADD CONSTRAINT employee_branch_id_fkey FOREIGN KEY (branch_id) REFERENCES public.branch(id) NOT VALID;
 
 
 --
@@ -781,7 +781,7 @@ ALTER TABLE ONLY public.employees
 --
 
 ALTER TABLE ONLY public.employee_email_addresses
-    ADD CONSTRAINT employee_email_addresses_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.employees("ID") NOT VALID;
+    ADD CONSTRAINT employee_email_addresses_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.employees(id) NOT VALID;
 
 
 --
@@ -789,7 +789,7 @@ ALTER TABLE ONLY public.employee_email_addresses
 --
 
 ALTER TABLE ONLY public.employees
-    ADD CONSTRAINT employee_manager_id_fkey FOREIGN KEY (manager_id) REFERENCES public.employees("ID") NOT VALID;
+    ADD CONSTRAINT employee_manager_id_fkey FOREIGN KEY (manager_id) REFERENCES public.employees(id) NOT VALID;
 
 
 --
@@ -797,7 +797,7 @@ ALTER TABLE ONLY public.employees
 --
 
 ALTER TABLE ONLY public.employee_phone_numbers
-    ADD CONSTRAINT employee_phone_numbers_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.employees("ID") NOT VALID;
+    ADD CONSTRAINT employee_phone_numbers_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.employees(id) NOT VALID;
 
 
 --
@@ -805,7 +805,7 @@ ALTER TABLE ONLY public.employee_phone_numbers
 --
 
 ALTER TABLE ONLY public.employees
-    ADD CONSTRAINT employee_property_id_fkey FOREIGN KEY (property_id) REFERENCES public.property("ID") NOT VALID;
+    ADD CONSTRAINT employee_property_id_fkey FOREIGN KEY (property_id) REFERENCES public.property(id) NOT VALID;
 
 
 --
@@ -813,7 +813,7 @@ ALTER TABLE ONLY public.employees
 --
 
 ALTER TABLE ONLY public.guest_email_addresses
-    ADD CONSTRAINT guest_email_addresses_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.guests("ID");
+    ADD CONSTRAINT guest_email_addresses_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.guests(id);
 
 
 --
@@ -821,7 +821,7 @@ ALTER TABLE ONLY public.guest_email_addresses
 --
 
 ALTER TABLE ONLY public.guest_phone_numbers
-    ADD CONSTRAINT guest_phone_numbers_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.guests("ID");
+    ADD CONSTRAINT guest_phone_numbers_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.guests(id);
 
 
 --
@@ -829,7 +829,7 @@ ALTER TABLE ONLY public.guest_phone_numbers
 --
 
 ALTER TABLE ONLY public.host_email_addresses
-    ADD CONSTRAINT host_email_addresses_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.hosts("ID");
+    ADD CONSTRAINT host_email_addresses_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.hosts(id);
 
 
 --
@@ -837,7 +837,7 @@ ALTER TABLE ONLY public.host_email_addresses
 --
 
 ALTER TABLE ONLY public.host_phone_numbers
-    ADD CONSTRAINT host_phone_numbers_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.hosts("ID");
+    ADD CONSTRAINT host_phone_numbers_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.hosts(id);
 
 
 --
@@ -845,7 +845,7 @@ ALTER TABLE ONLY public.host_phone_numbers
 --
 
 ALTER TABLE ONLY public.payment
-    ADD CONSTRAINT payment_guest_id_fkey FOREIGN KEY (guest_id) REFERENCES public.guests("ID") NOT VALID;
+    ADD CONSTRAINT payment_guest_id_fkey FOREIGN KEY (guest_id) REFERENCES public.guests(id) NOT VALID;
 
 
 --
@@ -853,7 +853,7 @@ ALTER TABLE ONLY public.payment
 --
 
 ALTER TABLE ONLY public.payment
-    ADD CONSTRAINT payment_host_id_fkey FOREIGN KEY (host_id) REFERENCES public.hosts("ID") NOT VALID;
+    ADD CONSTRAINT payment_host_id_fkey FOREIGN KEY (host_id) REFERENCES public.hosts(id) NOT VALID;
 
 
 --
@@ -861,7 +861,7 @@ ALTER TABLE ONLY public.payment
 --
 
 ALTER TABLE ONLY public.property
-    ADD CONSTRAINT property_branch_id_fkey FOREIGN KEY (branch_id) REFERENCES public.branch("ID") NOT VALID;
+    ADD CONSTRAINT property_branch_id_fkey FOREIGN KEY (branch_id) REFERENCES public.branch(id) NOT VALID;
 
 
 --
@@ -869,7 +869,7 @@ ALTER TABLE ONLY public.property
 --
 
 ALTER TABLE ONLY public.property
-    ADD CONSTRAINT property_host_id_fkey FOREIGN KEY (host_id) REFERENCES public.hosts("ID") NOT VALID;
+    ADD CONSTRAINT property_host_id_fkey FOREIGN KEY (host_id) REFERENCES public.hosts(id) NOT VALID;
 
 
 --
@@ -877,7 +877,7 @@ ALTER TABLE ONLY public.property
 --
 
 ALTER TABLE ONLY public.property
-    ADD CONSTRAINT property_renter_rate_id_fkey FOREIGN KEY (renter_rate_id) REFERENCES public.renter_rate("ID") NOT VALID;
+    ADD CONSTRAINT property_renter_rate_id_fkey FOREIGN KEY (renter_rate_id) REFERENCES public.renter_rate(id) NOT VALID;
 
 
 --
@@ -885,7 +885,7 @@ ALTER TABLE ONLY public.property
 --
 
 ALTER TABLE ONLY public.rental_agreement
-    ADD CONSTRAINT rental_agreement_property_id_fkey FOREIGN KEY (property_id) REFERENCES public.property("ID") NOT VALID;
+    ADD CONSTRAINT rental_agreement_property_id_fkey FOREIGN KEY (property_id) REFERENCES public.property(id) NOT VALID;
 
 
 --
@@ -893,7 +893,7 @@ ALTER TABLE ONLY public.rental_agreement
 --
 
 ALTER TABLE ONLY public.reviews
-    ADD CONSTRAINT review_guest_id_fkey FOREIGN KEY (guest_id) REFERENCES public.guests("ID") NOT VALID;
+    ADD CONSTRAINT review_guest_id_fkey FOREIGN KEY (guest_id) REFERENCES public.guests(id) NOT VALID;
 
 
 --
@@ -901,7 +901,7 @@ ALTER TABLE ONLY public.reviews
 --
 
 ALTER TABLE ONLY public.reviews
-    ADD CONSTRAINT review_property_id_fkey FOREIGN KEY (property_id) REFERENCES public.property("ID");
+    ADD CONSTRAINT review_property_id_fkey FOREIGN KEY (property_id) REFERENCES public.property(id);
 
 
 --
@@ -909,7 +909,7 @@ ALTER TABLE ONLY public.reviews
 --
 
 ALTER TABLE ONLY public.rules
-    ADD CONSTRAINT rules_property_id_fkey FOREIGN KEY (property_id) REFERENCES public.property("ID");
+    ADD CONSTRAINT rules_property_id_fkey FOREIGN KEY (property_id) REFERENCES public.property(id);
 
 
 --

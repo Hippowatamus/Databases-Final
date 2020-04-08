@@ -15,9 +15,9 @@ export class HostInterfaceComponent implements OnInit {
   branch = <Branch>{ branch_country: "USA"};
   ngOnInit() {
     let id: string =this.route.snapshot.paramMap.get('id');
-    //this.getSpecificData(id);
+    this.getSpecificData(id);
     //this.postBranch(id);
-    this.deleteProperty(id)
+    //this.deleteProperty(id)
   }
 
   getSpecificData(id: string){

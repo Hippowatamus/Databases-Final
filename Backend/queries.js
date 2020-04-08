@@ -1,3 +1,38 @@
+//query for deleting property as host:
+// DELETE FROM rental_agreement
+// WHERE property_id = <given>;
+// DELETE FROM reviews
+// WHERE property_id = <given>;
+// DELETE FROM rules
+// WHERE property_id = <given>;
+// DELETE FROM amenities
+// WHERE property_id = <given>;
+// DELETE FROM available_dates
+// WHERE property_id = <given>;
+// DELETE FROM booking_property
+// WHERE property_id = <given>;
+// DELETE FROM employee_email_addresses
+// WHERE employees.property_id = <given> AND employee_email_addresses.user_id = employees.id;
+// DELETE FROM employee_phone_numbers
+// WHERE employees.property_id = <given> AND employee_phone_numbers.user_id = employees.id;
+// DELETE FROM employees
+// WHERE property_id = <given>;
+// DELETE FROM property
+// WHERE id = <given>;
+
+
+//query for uploading property as host:
+// INSERT INTO renter_rate(id, price, number_of_guests)
+// VALUES (MAX(renter_rate.id)+1, <pri>, <nogi>);
+// INSERT INTO property(id, house_number, street, city, province, property_type, room_type, accommodates, bathrooms, bedrooms, beds, branch_id, host_id, renter_rate_id)
+// VALUES (MAX(property.id)+1, <hni>, <si>, <ci>, <pi>, <pti>, <rti>, <ai>, <bi>, <bri>, <bei>, <brai>, <the host id>, MAX(renter_rate.id));
+// INSERT INTO amenities(id, amenity, property_id)
+// VALUES (MAX(amenities.id)+1, <ami>, MAX(property.id));
+// INSERT INTO rules(id, rule, property_id)
+// VALUES (MAX(rules.id)+1, <ri>, MAX(property.id));
+// INSERT INTO available_dates(id, available_date, property_id)
+// VALUES (MAX(available_dates.id)+1, <adi>, MAX(property.id));
+
 const Pool = require('pg').Pool
 const pool = new Pool({
   user: 'postgres',
